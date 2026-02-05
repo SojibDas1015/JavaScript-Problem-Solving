@@ -11,5 +11,5 @@ function cashOut(money) {
         console.log("invalid");
     }
 }
-const result = cashOut(4000);
+const result = cashOut(100);
 console.log(result);
