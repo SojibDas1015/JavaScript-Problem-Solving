@@ -1,9 +1,24 @@
 function validEmail(email) {
     if (typeof email === 'string') {
         let flag = true;
+        if (email.slice(0, 1) === '@') {
+            flag = false;
+        }
         for (const emai of email) {
             if (emai === '-' || emai === '_' || emai === '+' || emai === ' ') {
+                return flag = false;
+            }
+        }
+        for (let i = Math.floor(email.length/2-4); i <= Math.ceil(email.length/2+2); i++) {
+            if(email[i] === '@')
+            {
+                flag = true;
+                break;
+            }
+            else
+            {
                 flag = false;
+                continue;
             }
         }
         let com = '';
@@ -13,13 +28,9 @@ function validEmail(email) {
         if (com !== '.com') {
             flag = false;
         }
-        if (email.slice(0, 1) === '@') {
-            flag = false;
-        }
         return flag;
     }
-    else
-    {
+    else {
         return 'Invalid'
     }
 }
